@@ -1,0 +1,5 @@
+{
+  "name": "Lucky Music Slot Machine",
+  "description": "A slot-machine style lottery app to choose between NetEase Cloud Music, Spotify, and Soda Music with equal probability.",
+  "requestFramePermissions": []
+}
