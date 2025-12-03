@@ -1,33 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Lucky Draw</title>
+    <title>音乐灵感机</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@400;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
       
       body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #1a1a1a;
-      }
-      
-      .font-digital {
-        font-family: 'Orbitron', sans-serif;
-      }
-
-      /* Custom metallic gradients */
-      .metal-gradient {
-        background: linear-gradient(to bottom, #f3f4f6 0%, #9ca3af 20%, #4b5563 50%, #9ca3af 80%, #f3f4f6 100%);
-      }
-      
-      .gold-gradient {
-        background: linear-gradient(to bottom, #fef08a 0%, #eab308 20%, #a16207 50%, #eab308 80%, #fef08a 100%);
+        font-family: 'Inter', 'Noto Sans SC', sans-serif;
+        background-color: #0f172a;
+        color: white;
+        margin: 0;
+        overflow-x: hidden;
       }
 
-      .bulb-glow {
-        box-shadow: 0 0 10px 2px rgba(255, 255, 0, 0.8);
+      /* Dynamic Mesh Gradient Background */
+      .mesh-bg {
+        background-color: #0f172a;
+        background-image: 
+          radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+          radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+          radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+        background-size: 100% 100%;
+        min-height: 100vh;
+      }
+
+      /* Glow Effects */
+      .glow-text {
+        text-shadow: 0 0 20px rgba(167, 139, 250, 0.5);
+      }
+      
+      .reel-shadow-overlay {
+        background: linear-gradient(to bottom, 
+          rgba(15, 23, 42, 0.8) 0%, 
+          rgba(15, 23, 42, 0) 25%, 
+          rgba(15, 23, 42, 0) 75%, 
+          rgba(15, 23, 42, 0.8) 100%
+        );
+        pointer-events: none;
+      }
+
+      /* Custom Scrollbar for hidden elements just in case */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
       }
     </style>
   <script type="importmap">

@@ -1,5 +1,5 @@
 {
-  "name": "Lucky Music Slot Machine",
-  "description": "A slot-machine style lottery app to choose between NetEase Cloud Music, Spotify, and Soda Music with equal probability.",
+  "name": "幸运音乐老虎机",
+  "description": "一款类似老虎机的抽奖应用，用于在网易云音乐、Spotify和汽水音乐之间进行等概率选择。",
   "requestFramePermissions": []
 }
