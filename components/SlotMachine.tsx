@@ -16,25 +16,26 @@ const SlotMachine: React.FC = () => {
   const handleSpin = useCallback(() => {
     if (isSpinning) return;
 
-    setIsSpinning(true);
-    setWinner(null);
-
-    // 1. Determine Winner (Equal Probability: 1/3 each)
-    // Math.random() returns [0, 1), so multiplying by length and flooring gives uniform distribution
+    // 1. 立即确定赢家 (等概率分布)
     const randomIndex = Math.floor(Math.random() * PRIZES.length);
     const selectedPrize = PRIZES[randomIndex];
 
-    // 2. Trigger Spins
+    // 2. 立即锁定结果状态
+    // 在动画开始前就确定结果，符合“点击即抽取”的逻辑
+    setWinner(selectedPrize);
+    setIsSpinning(true);
+
+    // 3. 触发转动动画
     const baseDuration = 2000;
 
     if (reel1Ref.current) reel1Ref.current.spin(randomIndex, baseDuration);
     if (reel2Ref.current) reel2Ref.current.spin(randomIndex, baseDuration + 200);
     if (reel3Ref.current) reel3Ref.current.spin(randomIndex, baseDuration + 400);
 
-    // 3. Handle Completion
+    // 4. 处理动画完成
     setTimeout(() => {
       setIsSpinning(false);
-      setWinner(selectedPrize);
+      // 结果早已确定，此处仅触发视觉特效
       triggerWinEffect();
     }, baseDuration + 400); 
 
